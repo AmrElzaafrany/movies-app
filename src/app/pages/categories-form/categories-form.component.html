@@ -1,0 +1,20 @@
+<div class="category-form">
+    <div class="text-center head">
+        <h2>Add Category</h2>
+    </div>
+    <form [formGroup]="categoryForm">
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <mat-form-field appearance="outline" color="warn">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="text-left">
+            <button mat-raised-button color="warn" (click)="addCategory()">
+                Add Category
+            </button>
+        </div>
+    </form>
+</div>

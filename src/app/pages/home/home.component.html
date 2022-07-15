@@ -1,0 +1,57 @@
+<div class="banner">
+    <div class="header">
+        <h2>srore X web</h2>
+        <h6>check all films latest update</h6>
+    </div>
+</div>
+
+<div class="row movies py-5">
+    <div class="category col-md-3 col-sm-8 ">
+        <app-categories-banner></app-categories-banner>
+    </div>
+
+    <div class="col-md-8 col-sm-8">
+        <div>
+            <h2 class="text-center">{{!getMoviesbyCat ? "All Movies" : "Movies By Category"}}</h2>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button (click)="addMovieForm()" mat-button color="primary">Add New Movie</button>
+            <button (click)="goToCategoryForm()" mat-button color="primary">Add New Category</button>
+        </div>
+        <div class="row container mt-4 mb-4 mat-elevation-z8 movies-list">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+                    <td mat-cell *matCellDef="let row">
+                        <img [src]="row.image" width="50">
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                    <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+                    <td mat-cell *matCellDef="let row">{{row.description}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+                    <td mat-cell *matCellDef="let row">
+                        <mat-icon (click)="delete(row.id)">delete</mat-icon>
+                        <mat-icon (click)="edit(row.id)">edit</mat-icon>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+            </table>
+            <mat-paginator class="p" [pageSizeOptions]="[5, 10, 25]" aria-label="Select page of users"></mat-paginator>
+
+        </div>
+
+
+    </div>
+</div>

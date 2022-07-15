@@ -1,0 +1,10 @@
+<div class="categorie-banner">
+    <h2 class="text-center">Categories</h2>
+    <div>
+        <div class="category" *ngFor="let category of categories">
+            <button mat-button color="primary" class="category"  [routerLink]="'/moviesByCategory/' + category.id">
+                <div>{{category.name}}</div>
+            </button>
+        </div>
+    </div>
+</div>

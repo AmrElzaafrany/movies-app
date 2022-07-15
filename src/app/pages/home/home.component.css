@@ -1,0 +1,43 @@
+.banner {
+  background-image: url('../../../assets/images/banner.jpg');
+  background-position: center top;
+  background-size: cover;
+  height: 600px;
+  }
+
+  .header {
+    height: 90%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+  }
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 3.75rem;
+    line-height: 1.2;
+}
+h6 {
+    color: darkgray;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.57;
+    letter-spacing: 0.00714em;
+}
+
+.movies-list {
+  overflow: auto;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+}
+
+mat-icon {
+  cursor: pointer;
+}

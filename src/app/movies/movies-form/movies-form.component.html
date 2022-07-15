@@ -1,0 +1,48 @@
+<mat-toolbar *ngIf="message" color="accent">{{ message }}</mat-toolbar>
+
+<div class="text-center movies-form">
+    <div class="head">
+        <h2>{{editMode ? "Edit Movie" : "Add Movie"}}</h2>
+    </div>
+    <form [formGroup]="moviesForm">
+        <div class="row">
+            <div class="col-md-6 col-sm-10">
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-10">
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Description</mat-label>
+                    <input matInput type="text" formControlName="description">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-10">
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category_id">
+                        <mat-option *ngFor="let category of categories" [value]="category.id">
+                            {{category.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6 col-sm-10">
+                <input type="file" name="uploadFile" multiple="multiple" accept="image/*"
+                    (change)="onImageUpload($event)">
+            </div>
+
+            <div class="text-right login-footer mt-5">
+                <button mat-raised-button color="warn" [disabled]="moviesForm.invalid" (click)="submit()">{{editMode ?
+                    "Edit Movie" : "Add Movie" }}</button>
+            </div>
+
+
+        </div>
+    </form>
+
+
+</div>
